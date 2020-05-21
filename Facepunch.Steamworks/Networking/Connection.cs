@@ -121,5 +121,17 @@ namespace Steamworks.Data
 
 			return strVal;
 		}
+
+
+		public bool GetQuickConnectionStatus(out SteamNetworkingQuickConnectionStatus status )
+		{
+			status = new SteamNetworkingQuickConnectionStatus();
+			if ( SteamNetworkingSockets.Internal.GetQuickConnectionStatus( this, ref status ))
+			{
+				return true;
+			}
+
+			return false;
+		}
 	}
 }
